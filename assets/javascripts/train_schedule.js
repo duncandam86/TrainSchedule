@@ -36,6 +36,7 @@ $(document).ready(function () {
         //console.log(childSnap.val());
         //create a new Row using <tr> tag
         var newRow = $("<tr>");
+        newRow.addClass("text-center");
         //create a new variable to store the name and put it in a <td> tag
         var newTrainName = $("<th>").text(childSnap.val().name);
         console.log(childSnap.val().name);
@@ -54,15 +55,21 @@ $(document).ready(function () {
         var timeDifferent = moment().diff(newFirstTrainArrival, "minutes")
         console.log(timeDifferent);
         
-        //calculate and set the time for the next arrival time
-        var nextArrival = moment()+(timeDifferent % childSnap.val().frequency); 
-        console.log(nextArrival);
-
         //calculate the amount of minute until the next train arrives
         var minuteAway = childSnap.val().frequency - (timeDifferent % childSnap.val().frequency);
         console.log(minuteAway);
+        var newMinuteAway = $("<td>").text(minuteAway);
+        
+        //calculate and set the time for the next arrival time
+        var nextArrival = moment().add(minuteAway, "minutes").format('LT'); 
+        console.log(nextArrival);
+        var newNextArrival = $("<td>").text(nextArrival);
 
-        newRow.append(newTrainName, newDestination, newFrequency, nextArrival, minuteAway);
+        //create a remove button
+        var removeButton = $("<button>")
+
+
+        newRow.append(newTrainName, newDestination, newFrequency, newNextArrival, newMinuteAway);
         $("#table-body").append(newRow);
 
 
