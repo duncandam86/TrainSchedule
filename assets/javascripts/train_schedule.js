@@ -66,30 +66,13 @@ $(document).ready(function () {
         var newNextArrival = $("<td>").text(nextArrival);
 
         //create a remove button
-        var removeButton = $("<button>")
-
-
-        newRow.append(newTrainName, newDestination, newFrequency, newNextArrival, newMinuteAway);
+        var removeButton = $("<button>");
+        removeButton.addClass("arrival btn btn-danger text-center").attr("data-key", " + key + ");
+        removeButton.text("X");
+        var newRemoveButton = $("<td>").append(removeButton)
+        
+        newRow.append(newTrainName, newDestination, newFrequency, newNextArrival, newMinuteAway, newRemoveButton);
         $("#table-body").append(newRow);
-
-
-
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
