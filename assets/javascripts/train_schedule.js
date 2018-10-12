@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     //initialize firebase connection
     var config = {
         apiKey: "AIzaSyC_C2yBW6xyfYsyGY8zbZbn8csQqaxqmQ0",
@@ -23,7 +22,7 @@ $(document).ready(function () {
 
     currentTime();
 
-    //set up click even for submit button
+    //set up click event for submit button
     $("#submit").on("click", function (event) {
         console.log("form submission");
         event.preventDefault();
