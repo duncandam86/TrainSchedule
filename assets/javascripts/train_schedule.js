@@ -116,6 +116,6 @@ $(document).ready(function () {
     //create function for page to automatically restart
     setInterval(function () {
         window.location.reload();
-    }, 120000);
+    }, 60000);
 
 })
