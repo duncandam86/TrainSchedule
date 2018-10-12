@@ -32,14 +32,27 @@ $(document).ready(function () {
         var AddFirstTrainArrival = $("#first-train-arrival").val().trim();
         var AddFrequency = $("#add-frequency").val().trim();
         console.log(AddTrainName, AddDestination, AddFirstTrainArrival, AddFrequency);
+        
+        // make sure all forms are filled before submit
+        if (AddTrainName === "" || AddDestination === "" || AddFirstTrainArrival === "" || AddFrequency === "") {
+            alert("Please fill in the form!");
+        }
 
-        //push information into firebase
-        database.ref("/train-schedule").push({
-            name: AddTrainName,
-            destination: AddDestination,
-            first_arrival: AddFirstTrainArrival,
-            frequency: AddFrequency,
+        //when all forms are filled 
+        else {
+            //push information into firebase
+            database.ref("/train-schedule").push({
+                name: AddTrainName,
+                destination: AddDestination,
+                first_arrival: AddFirstTrainArrival,
+                frequency: AddFrequency,
+            });
+        }
+        //remove all forms once it's submitted
+        $("#add-train-form").each(function () {
+            this.reset();
         });
+
     })
 
     //set up the child_added event for firebase train-schedule location
@@ -86,6 +99,7 @@ $(document).ready(function () {
 
         newRow.append(newTrainName, newDestination, newFrequency, newNextArrival, newMinuteAway, newRemoveButton);
         $("#table-body").append(newRow);
+
     }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
@@ -103,6 +117,6 @@ $(document).ready(function () {
     //create function for page to automatically restart
     setInterval(function () {
         window.location.reload();
-    }, 50000);
+    }, 120000);
 
 })

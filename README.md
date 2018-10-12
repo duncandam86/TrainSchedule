@@ -14,7 +14,7 @@
     * First Train Time -- in military time
     * Frequency -- in minutes
 
-* Train schedule will be automatically update every 5 mins
+* Train schedule will be automatically update every 2 mins
 
 * Train information can be removed from the list
    
