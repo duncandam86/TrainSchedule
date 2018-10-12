@@ -4,7 +4,7 @@
 
 #dd-express{
     font-size: 60px;
-    margin-top: -20px;
+    margin-top: -60px;
 }
 
 h3{
@@ -18,15 +18,20 @@ h5{
 #current-time{
     margin-top: 10px;
     margin-right: 100px;
+    margin-bottom:-50px;
     
 }
 .panel-heading{
+    margin-top: -20px;
+    margin-bottom: 10px;
     font-size: 19px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: red;
 }
-
+.table{
+    background: grey;
+}
 th{
     color: white;
 }
@@ -37,4 +42,6 @@ tr{
 
 #name{
     color: white;
+    background: black;
+    padding: 0px 2px 0px 2px;
 }
