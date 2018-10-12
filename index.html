@@ -18,11 +18,13 @@
 </head>
 
 <body>
-    <div class="jumbotron text-center">
-        <h1>M&M Express Schedule</h1>
-        <h4>Our motto is On-time</h4>
-    </div>
     <div class="container">
+        <div class="jumbotron text-center">
+            <h1>D&D Express Schedule</h1>
+            <h3><i>"Always On-time"</i></h3>
+            <h5 id="current-time"></h5>
+        </div>
+
         <div class="row">
             <div class="col-md-9">
                 <div class="panel panel-default">
@@ -34,7 +36,7 @@
                 <div class="panel-body">
                     <table class="table">
                         <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th scope="col">Train Name</th>
                                 <th scope="col">Destination</th>
                                 <th scope="col">Frequency</th>
@@ -45,7 +47,7 @@
                         </thead>
                         <tbody id="table-body">
                             <tr>
-                                
+
                             </tr>
                         </tbody>
                     </table>
