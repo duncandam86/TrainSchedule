@@ -19,7 +19,7 @@ $(document).ready(function () {
         $("#current-time").html(current);
         setTimeout(currentTime, 1000);
     };
-
+    //call 
     currentTime();
 
     //set up click event for submit button
@@ -101,7 +101,7 @@ $(document).ready(function () {
         $("#table-body").append(newRow);
 
     }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
+        console.log("Failed: " + errorObject.code);
     });
 
     //remove row from remove button
