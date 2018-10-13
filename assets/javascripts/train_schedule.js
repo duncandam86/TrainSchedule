@@ -77,22 +77,23 @@ $(document).ready(function () {
         console.log(newFirstTrainArrival.format());
         //calculate time difference between now and new first arrival by minutes
         var timeDifferent = moment().diff(newFirstTrainArrival, "minutes")
-        console.log(timeDifferent);
+        //console.log(timeDifferent);
 
         //calculate the amount of minute until the next train arrives
         var minuteAway = childSnap.val().frequency - (timeDifferent % childSnap.val().frequency);
-        console.log(minuteAway);
+        //console.log(minuteAway);
         var newMinuteAway = $("<td>").text(minuteAway);
 
         //calculate and set the time for the next arrival time
         var nextArrival = moment().add(minuteAway, "minutes").format('LT');
-        console.log(nextArrival);
+        //console.log(nextArrival);
         var newNextArrival = $("<td>").text(nextArrival);
 
         //create a remove button
         var removeButton = $("<button>");
         removeButton.addClass("btn btn-danger text-center fa fa-trash");
         var key = childSnap.key; //store the key of each child into a variable
+        console.log(key);
         removeButton.attr("data-key", key);
         var newRemoveButton = $("<td>").append(removeButton)
 
