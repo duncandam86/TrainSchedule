@@ -27,13 +27,14 @@ $(document).ready(function () {
         console.log("form submission");
         event.preventDefault();
         var AddTrainName = $("#add-train-name").val().trim();
+        var AddDepartureCity = $("#add-departure").val().trim()
         var AddDestination = $("#add-destination").val().trim();
         var AddFirstTrainArrival = $("#first-train-arrival").val().trim();
         var AddFrequency = $("#add-frequency").val().trim();
-        console.log(AddTrainName, AddDestination, AddFirstTrainArrival, AddFrequency);
+        console.log(AddTrainName, AddDepartureCity, AddDestination, AddFirstTrainArrival, AddFrequency);
         
         // make sure all forms are filled before submit
-        if (AddTrainName === "" || AddDestination === "" || AddFirstTrainArrival === "" || AddFrequency === "") {
+        if (AddTrainName === "" || AddDepartureCity === "" || AddDestination === "" || AddFirstTrainArrival === "" || AddFrequency === "") {
             alert("Please fill in the form!");
         }
 
@@ -42,6 +43,7 @@ $(document).ready(function () {
             //push information into firebase
             database.ref("/train-schedule").push({
                 name: AddTrainName,
+                departure: AddDepartureCity,
                 destination: AddDestination,
                 first_arrival: AddFirstTrainArrival,
                 frequency: AddFrequency,
@@ -64,6 +66,8 @@ $(document).ready(function () {
         //create a new variable to store the name and put it in a <td> tag
         var newTrainName = $("<th>").text(childSnap.val().name);
         console.log(childSnap.val().name);
+        //create a new variable to store new departure city
+        var newDepartureCity =$("<td>").text(childSnap.val().departure);
         //create a new variblae to store new destination
         var newDestination = $("<td>").text(childSnap.val().destination);
         console.log(childSnap.val().destination);
@@ -97,7 +101,7 @@ $(document).ready(function () {
         removeButton.attr("data-key", key);
         var newRemoveButton = $("<td>").append(removeButton)
 
-        newRow.append(newTrainName, newDestination, newFrequency, newNextArrival, newMinuteAway, newRemoveButton);
+        newRow.append(newTrainName, newDepartureCity, newDestination, newFrequency, newNextArrival, newMinuteAway, newRemoveButton);
         $("#table-body").append(newRow);
 
     }, function (errorObject) {
